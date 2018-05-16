@@ -20,23 +20,23 @@ loop(8, test);
 
 // Задание 2
 
-let calculateArea = (a,b) => {
-    const Figure = {area: a*b, figure: "rectangle", input: {a,b}};
+let calculateArea = (a, b) => {
+    const Figure = { area: a * b, figure: "rectangle", input: { a, b } };
     console.log(Figure);
 }
-calculateArea(5,8);
+calculateArea(5, 8);
 
 
 // Задание 3
 
 class Human {
-constructor (name, age, dateOfBirth) {
-    this.name = name;
-    this.age = age;
-    this.dateOfBirth = dateOfBirth;
-}
+    constructor(name, age, dateOfBirth) {
+        this.name = name;
+        this.age = age;
+        this.dateOfBirth = dateOfBirth;
+    }
 
-displayInfo() {
+    displayInfo() {
         return `Name = ${this.name} ; Age = ${this.age} ; Date of birth = ${this.dateOfBirth}`;
     }
 }
@@ -46,12 +46,12 @@ console.log(new Human("Cliff", 30, "07.10.1987").displayInfo());
 
 
 class Employee extends Human {
-    constructor (name, age, dateOfBirth, salary, department) {
+    constructor(name, age, dateOfBirth, salary, department) {
         super(name, age, dateOfBirth);
         this.salary = salary;
         this.department = department;
     }
-displayInfo() {
+    displayInfo() {
         return `${super.displayInfo()} ; Salary =  ${this.salary} ; Department =  ${this.department}`;
     }
 }
@@ -59,7 +59,7 @@ displayInfo() {
 console.log(new Employee("Cliff", 30, "07.10.1987", 300000, "Development").displayInfo());
 
 class Manager extends Employee {
-    constructor (name, age, dateOfBirth, salary, department) {
+    constructor(name, age, dateOfBirth, salary, department) {
         super(name, age, dateOfBirth, salary, department);
         this.developers = [];
     }
@@ -73,7 +73,7 @@ class Manager extends Employee {
 
     // }
 
-displayInfo() {
+    displayInfo() {
         return `${super.displayInfo()} ; Manager of ${this.developers.length} developer(s)`;
     }
 
@@ -94,10 +94,9 @@ class Developer extends Employee {
 
     // }
 
-displayInfo() {
+    displayInfo() {
         return `${super.displayInfo()} ; Manager is ${this.manager.name}`;
     }
 }
 var developerCliff = new Developer("Cliff", 30, "07.10.1987", 300000, "Development", managerAnna);
 console.log(developerCliff.displayInfo());
-
